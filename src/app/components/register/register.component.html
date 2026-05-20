@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <div class="card p-4 shadow mx-auto" style="max-width: 400px;">
+    <h2 class="text-center mb-4">Register</h2>
+
+    <div class="alert alert-warning small">
+      Name must match your government ID proof exactly.
+    </div>
+
+    <input
+      type="text"
+      class="form-control mb-3"
+      placeholder="Full Name"
+      [(ngModel)]="user.name"
+    />
+
+    <input
+      type="email"
+      class="form-control mb-3"
+      placeholder="Email"
+      [(ngModel)]="user.email"
+    />
+
+    <input
+      type="password"
+      class="form-control mb-3"
+      placeholder="Password"
+      [(ngModel)]="user.password"
+    />
+
+    <button
+      *ngIf="!otpSent"
+      class="btn btn-primary w-100 mb-3"
+      (click)="sendOtp()"
+    >
+      Send OTP
+    </button>
+
+    <div *ngIf="otpSent">
+
+      <input
+        type="text"
+        class="form-control mb-3"
+        placeholder="Enter OTP"
+        [(ngModel)]="otp"
+      />
+
+      <button
+        class="btn btn-success w-100"
+        (click)="verifyAndRegister()"
+      >
+        Verify OTP & Register
+      </button>
+    </div>
+
+    <div class="text-center mt-3">
+      <span>Already have an account? </span>
+      <a routerLink="/login">Login</a>
+    </div>
+
+    <div *ngIf="message" class="alert alert-info mt-3">
+      {{ message }}
+    </div>
+  </div>
+</div>

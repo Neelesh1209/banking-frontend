@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <div class="card shadow p-4 mx-auto" style="max-width: 500px;">
+    <h2 class="mb-4">Transfer Money</h2>
+
+    <label class="form-label fw-bold">From Account Number</label>
+    <input
+      type="text"
+      class="form-control mb-3"
+      placeholder="Enter your account number"
+      [(ngModel)]="transferData.fromAccountNumber"
+    />
+
+    <label class="form-label fw-bold">To Account Number</label>
+    <input
+      type="text"
+      class="form-control mb-3"
+      placeholder="Enter receiver account number"
+      [(ngModel)]="transferData.toAccountNumber"
+    />
+
+    <label class="form-label fw-bold">Account Type</label>
+    <select
+      class="form-control mb-3"
+      [(ngModel)]="transferData.accountType"
+    >
+      <option value="">Select Account Type</option>
+      <option>Savings</option>
+      <option>Current</option>
+      <option>Salary</option>
+    </select>
+
+    <label class="form-label fw-bold">Amount</label>
+    <input
+      type="number"
+      class="form-control mb-3"
+      placeholder="Enter transfer amount"
+      [(ngModel)]="transferData.amount"
+    />
+
+    <button
+      *ngIf="!otpSent"
+      class="btn btn-primary w-100 mb-3"
+      (click)="sendOtp()"
+    >
+      Send OTP
+    </button>
+
+    <div *ngIf="otpSent">
+
+      <label class="form-label fw-bold">OTP</label>
+      <input
+        type="text"
+        class="form-control mb-3"
+        placeholder="Enter OTP"
+        [(ngModel)]="transferData.otp"
+      />
+
+      <button
+        class="btn btn-success w-100"
+        (click)="transfer()"
+      >
+        Verify OTP & Transfer
+      </button>
+    </div>
+
+    <div *ngIf="message" class="alert alert-info mt-3">
+      {{ message }}
+    </div>
+  </div>
+</div>

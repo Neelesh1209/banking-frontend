@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.bank-header {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  padding: 22px;
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+  color: white;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 20px rgba(13, 71, 161, 0.2);
+}

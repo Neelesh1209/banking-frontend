@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #eef5ff, #dbeafe);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  border: none !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 30px rgba(13, 71, 161, 0.12) !important;
+  background: white;
+}
+
+.form-control {
+  border-radius: 12px !important;
+  border: 1px solid #cbd5e1 !important;
+  padding: 12px !important;
+  font-size: 15px;
+}
+
+.form-control:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.15) !important;
+}
+
+.btn {
+  border-radius: 12px !important;
+  padding: 12px 20px !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb) !important;
+  border: none !important;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #2563eb, #1e40af) !important;
+  border: none !important;
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+  border: none !important;
+}
+
+.table {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.table thead {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: white;
+}
+
+.alert {
+  border-radius: 12px !important;
+}

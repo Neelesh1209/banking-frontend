@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+
+  <div class="card shadow p-4">
+    <h3 class="mb-4">Transaction History</h3>
+
+    <table class="table table-bordered table-striped" *ngIf="transactions.length > 0">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>From Name</th>
+          <th>From Type</th>
+          <th>To Name</th>
+          <th>To Type</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let tx of transactions">
+          <td>{{ tx.transactionType }}</td>
+          <td>{{ tx.amount }}</td>
+          <td>{{ tx.fromAccountHolderName }}</td>
+          <td>{{ tx.fromAccountType }}</td>
+          <td>{{ tx.toAccountHolderName }}</td>
+          <td>{{ tx.toAccountType }}</td>
+          <td>{{ tx.transactionDate }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="transactions.length === 0" class="alert alert-info">
+      No transactions found.
+    </div>
+
+  </div>
+</div>

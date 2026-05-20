@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <div class="card shadow p-4 mx-auto" style="max-width: 500px;">
+    <h2 class="mb-4">Withdraw Money</h2>
+
+    <label class="form-label fw-bold">Account Number</label>
+    <input
+      type="text"
+      class="form-control mb-3"
+      placeholder="Enter account number"
+      [(ngModel)]="withdrawData.accountNumber"
+    />
+
+    <label class="form-label fw-bold">Account Type</label>
+    <select
+      class="form-control mb-3"
+      [(ngModel)]="withdrawData.accountType"
+    >
+      <option value="">Select Account Type</option>
+      <option>Savings</option>
+      <option>Current</option>
+      <option>Salary</option>
+    </select>
+
+    <label class="form-label fw-bold">Amount</label>
+    <input
+      type="number"
+      class="form-control mb-3"
+      placeholder="Enter withdrawal amount"
+      [(ngModel)]="withdrawData.amount"
+    />
+
+    <button
+      *ngIf="!otpSent"
+      class="btn btn-primary w-100 mb-3"
+      (click)="sendOtp()"
+    >
+      Send OTP
+    </button>
+
+    <div *ngIf="otpSent">
+
+      <label class="form-label fw-bold">OTP</label>
+      <input
+        type="text"
+        class="form-control mb-3"
+        placeholder="Enter OTP"
+        [(ngModel)]="withdrawData.otp"
+      />
+
+      <button
+        class="btn btn-warning w-100"
+        (click)="withdraw()"
+      >
+        Verify OTP & Withdraw
+      </button>
+    </div>
+
+    <div *ngIf="message" class="alert alert-info mt-3">
+      {{ message }}
+    </div>
+  </div>
+</div>

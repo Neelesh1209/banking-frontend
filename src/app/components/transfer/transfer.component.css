@@ -1,0 +1,13 @@
+.container {
+  padding-top: 30px;
+}
+
+h2,
+h3 {
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.card {
+  background: white;
+}

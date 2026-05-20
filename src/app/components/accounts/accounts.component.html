@@ -1,0 +1,117 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+
+  <div class="card shadow p-4 mb-4">
+    <h3>Create Account</h3>
+
+    <div class="alert alert-warning">
+      Name must exactly match your government-issued ID proof.
+    </div>
+
+    <label class="form-label fw-bold">Account Holder Name</label>
+    <input
+      type="text"
+      class="form-control mb-3"
+      [(ngModel)]="newAccount.accountHolderName"
+      readonly
+    />
+
+    <label class="form-label fw-bold">Account Type</label>
+    <select
+      class="form-control mb-3"
+      [(ngModel)]="newAccount.accountType"
+    >
+      <option value="">Select Account Type</option>
+      <option value="Savings">Savings Account</option>
+      <option value="Salary">Salary Account</option>
+      <option value="Current">Current Account</option>
+    </select>
+
+    <div
+      *ngIf="submitted && !newAccount.accountType"
+      class="text-danger mb-2"
+    >
+      Account type is required
+    </div>
+
+    <label class="form-label fw-bold">Opening Balance</label>
+    <input
+      type="number"
+      class="form-control mb-3"
+      placeholder="Enter opening balance"
+      [(ngModel)]="newAccount.balance"
+    />
+
+    <label class="form-label fw-bold">Nominee Name</label>
+    <input
+      type="text"
+      class="form-control mb-3"
+      placeholder="Enter nominee name"
+      [(ngModel)]="newAccount.nomineeName"
+    />
+
+    <div
+      *ngIf="submitted && !newAccount.nomineeName?.trim()"
+      class="text-danger mb-3"
+    >
+      Nominee name is required
+    </div>
+
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+
+    <button
+      class="btn btn-primary"
+      (click)="createAccount()"
+    >
+      Create Account
+    </button>
+  </div>
+
+  <div class="card shadow p-4">
+    <h2 class="mb-4">All Accounts</h2>
+
+    <table
+      class="table table-bordered table-striped"
+      *ngIf="accounts.length > 0"
+    >
+      <thead>
+        <tr>
+          <th>Account Number</th>
+          <th>Holder Name</th>
+          <th>Type</th>
+          <th>Balance</th>
+          <th>Status</th>
+          <th>Nominee</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let account of accounts">
+          <td>{{ account.accountNumber }}</td>
+          <td>{{ account.accountHolderName }}</td>
+          <td>{{ account.accountType }}</td>
+          <td>{{ account.balance }}</td>
+          <td>{{ account.status }}</td>
+          <td>{{ account.nomineeName }}</td>
+          <td>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="deleteAccount(account.id!)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="accounts.length === 0" class="alert alert-info">
+      No accounts found.
+    </div>
+  </div>
+
+</div>
